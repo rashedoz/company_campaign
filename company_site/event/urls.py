@@ -4,6 +4,9 @@ from rest_framework.urlpatterns import format_suffix_patterns
 from rest_framework.authtoken.views import obtain_auth_token 
 
 urlpatterns = [
+
+    path('',views.index,name='index'),
+
     path('event/',views.EventList.as_view()),
     path('event/<int:pk>/',views.EventDetails.as_view()),
 
