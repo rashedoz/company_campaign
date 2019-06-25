@@ -17,7 +17,7 @@ let xhr = new XMLHttpRequest;
                     console.log(obj)
 
                     // create grid for all objects
-                    
+                    var i =0
                     obj.forEach(campaign => {
                       // Log each movie's title
                      //console.log(campaign.event_heading);
@@ -52,8 +52,11 @@ let xhr = new XMLHttpRequest;
 
                     //into link text
                     var introLink = document.createElement('a')
+                    
+                    introLink.href = "/event_details/"+i+"/"
                     introLink.text = campaign.event_heading
                     introTitle.appendChild(introLink)
+                    i++
                     })
                     
         }

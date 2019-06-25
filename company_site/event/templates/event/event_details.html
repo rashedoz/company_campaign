@@ -1,0 +1,101 @@
+{% extends 'event/base.html' %}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles/events.css'%}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/events_responsive.css'%}">
+{% endblock %}
+
+{% block header_text %}
+<div class="home_content_container">
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<div class="home_content d-flex flex-row align-items-end justify-content-start">
+					<div class="current_page">Events</div>
+					<div class="breadcrumbs ml-auto">
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li>Events</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<script>
+	// global js data index
+	var index = "{{ index }}"
+</script>
+
+<!-- Events -->
+
+<div class="events">
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				
+				<!-- Event -->
+				<div class="event">
+					<div class="row row-lg-eq-height">
+						<div class="col-lg-6 event_col">
+							<div class="event_image_container">
+								<div id="event_image" class="background_image" style=""></div>
+								<div class="date_container">
+									<a href="#">
+										<span class="date_content d-flex flex-column align-items-center justify-content-center">
+											
+											<!-- event date -->
+											<div id="event_date" class="date_month"></div>
+										</span>
+									</a>	
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6 event_col">
+							<div class="event_content">
+								<!-- event heading -->
+								<div id ="event_heading" class="event_title"></div>
+								<!-- <div class="event_location">@ Miami Auditorium</div> -->
+
+								<!-- event body -->
+								<div class="event_text">
+									<p id ="event_body"></p>
+								</div>
+								<div class="event_speakers">
+									<!-- Event Speaker -->
+									<!-- <div class="event_speaker d-flex flex-row align-items-center justify-content-start">
+										<div><div class="event_speaker_image"><img src="images/event_speaker_1.jpg" alt=""></div></div>
+										<div class="event_speaker_content">
+											<div class="event_speaker_name">Michael Smith</div>
+											<div class="event_speaker_title">Marketing Specialist</div>
+										</div>
+									</div> -->
+									
+								</div>
+							
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/api-event.js'%}"></script>
+<script src="{% static 'js/events.js'%}"></script>
+{% endblock %}

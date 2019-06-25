@@ -8,12 +8,22 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 # Create your views here.
 
+
+
 def index(request):
     context = {}
     
     # Render the HTML template index.html with the data in the context variable
     return render(request, 'event/index.html', context=context)
+
+# Event Details Page  
+def event(request,item_id):
+    # context = {'index':item_id}
     
+    # Render the HTML template index.html with the data in the context variable
+    return render(request, 'event/event_details.html', {'index':item_id})
+
+
 
 #test api token
 class HelloView(APIView):
