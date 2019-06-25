@@ -37,7 +37,15 @@ let xhr = new XMLHttpRequest;
 
                     //container image
                     const banner = document.createElement('img')
-                    banner.src = campaign.event_banner
+
+                    //using resized image
+                    var tmp = campaign.event_banner
+                    // console.log("img-"+tmp)
+                    // var n = tmp.lastIndexOf(".");
+                    // var res = tmp.substr(0,n) + ".home." + tmp.substr(n+1)
+                    // //var res = tmp.replace(".", ".medium");
+                    // console.log("res-"+res)
+                    banner.src = tmp
                     introImageContainer.appendChild(banner)
 
                     //intro body

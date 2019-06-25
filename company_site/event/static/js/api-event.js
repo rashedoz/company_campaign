@@ -34,9 +34,16 @@ let xhr = new XMLHttpRequest;
                     //evengt details
                     document.getElementById("event_body").innerHTML = obj[index].event_details
 
+                    //date conversion
+                    var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+                    var now = new Date(obj[index].event_date);
+                    console.log(days[now.getDay()] + ' ' + months[now.getMonth()] + ' ' + now.getDate() + ' ' + now.getFullYear()); //Tuesday February 12 2013
                     
                     //event date
-                    document.getElementById("event_date").innerHTML = obj[index].event_date
+                    //document.getElementById("event_date").innerHTML = obj[index].event_date
+                    document.getElementById("event_day").innerHTML =  now.getDate() 
+                    document.getElementById("event_month").innerHTML = months[now.getMonth()]
 
                     // event_image background-image:url(http://127.0.0.1:8000/media/gallery/intro_4.jpg)
                     // Event Image

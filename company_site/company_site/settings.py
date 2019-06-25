@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     #third part apps
     'rest_framework',
     'rest_framework.authtoken', #api token
+    'stdimage',
 
     #local apps
     'event.apps.EventConfig',
