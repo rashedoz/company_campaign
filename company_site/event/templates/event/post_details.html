@@ -1,0 +1,56 @@
+{% extends 'event/base.html' %}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles/events.css'%}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/events_responsive.css'%}">
+{% endblock %}
+
+{% block header_text %}
+<div class="home_content_container">
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<div class="home_content d-flex flex-row align-items-end justify-content-start">
+					<div class="current_page">Events</div>
+					<div class="breadcrumbs ml-auto">
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li>Events</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+{% endblock %}
+
+{% block content %}
+
+<script>
+	// global js data index
+	var index = "{{ index }}"
+</script>
+
+<hr>
+
+<div class="comment">
+	<div class="date">{{ comment.created_date }}</div>
+	<strong>{{ comment.author }}</strong>
+	<p>{{ comment.text|linebreaks }}</p>
+</div>
+
+<p>No Comments here yet:</p>
+
+
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/api-event.js'%}"></script>
+<script src="{% static 'js/events.js'%}"></script>
+{% endblock %}

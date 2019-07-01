@@ -25,6 +25,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('event.urls')),
+    path('accounts/',include('django.contrib.auth.urls')),
 ]
 
 #static files media urls

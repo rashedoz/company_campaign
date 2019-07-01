@@ -25,6 +25,11 @@
 		</div>
 	</div>
 </div>
+
+
+
+
+
 {% endblock %}
 
 {% block content %}
@@ -40,7 +45,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col">
-				
+
 				<!-- Event -->
 				<div class="event">
 					<div class="row row-lg-eq-height">
@@ -49,26 +54,27 @@
 								<div id="event_image" class="background_image" style=""></div>
 								<div class="date_container">
 									<a href="#">
-										<span class="date_content d-flex flex-column align-items-center justify-content-center">
-											
+										<span
+											class="date_content d-flex flex-column align-items-center justify-content-center">
+
 											<!-- event date -->
 											<!-- <div  class="date_month"></div> -->
-											<div id="event_day"class="date_day"></div>
-											<div id="event_month"class="date_month"></div>
+											<div id="event_day" class="date_day"></div>
+											<div id="event_month" class="date_month"></div>
 										</span>
-									</a>	
+									</a>
 								</div>
 							</div>
 						</div>
 						<div class="col-lg-6 event_col">
 							<div class="event_content">
 								<!-- event heading -->
-								<div id ="event_heading" class="event_title"></div>
+								<div id="event_heading" class="event_title"></div>
 								<!-- <div class="event_location">@ Miami Auditorium</div> -->
 
 								<!-- event body -->
 								<div class="event_text">
-									<p id ="event_body"></p>
+									<p id="event_body"></p>
 								</div>
 								<div class="event_speakers">
 									<!-- Event Speaker -->
@@ -79,18 +85,39 @@
 											<div class="event_speaker_title">Marketing Specialist</div>
 										</div>
 									</div> -->
-									
+
 								</div>
-							
+
 							</div>
 						</div>
 					</div>
 				</div>
 
+				<div>
+					<hr>
+					<h3>Comments</h3>
+					<h5>Total Comments- {{ total_comments }}</h5>
+					<hr>
+					{% for comment in event_comments %}
+					<div class="comment">
+						<div class="date">{{ comment.created_date }}</div>
+						<strong>{{ comment.author }}</strong>
+						<h5>Given Score- {{ comment.comment_score }}</h5>
+						<p>{{ comment.text|linebreaks }}</p>
+					</div>
+					<hr>
+					{% empty %}
+					<p>No comments here yet :(</p>
+					{% endfor %}
+
+					
+				
+				</div>
+
 
 			</div>
 		</div>
-		
+
 	</div>
 </div>
 

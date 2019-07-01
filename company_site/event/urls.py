@@ -10,6 +10,10 @@ urlpatterns = [
 
     path('event/',views.EventList.as_view()),
     path('event/<int:pk>/',views.EventDetails.as_view()),
+    
+    #comment url
+
+    #path('event_details/<int:pk>/comment/', views.add_comment_to_post,  name='add_comment_to_post'),
 
     path('hello/',views.HelloView.as_view(),name ='hello'),
 

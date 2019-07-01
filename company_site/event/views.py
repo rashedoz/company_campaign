@@ -1,11 +1,15 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from rest_framework import generics
-from .models import Event
+from .models import Event,Comment
 from .serializers import EventSerializer
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from django.shortcuts import redirect
+from django.shortcuts import get_object_or_404
+
+from .forms import CommentForm
 # Create your views here.
 
 
@@ -16,14 +20,46 @@ def index(request):
     # Render the HTML template index.html with the data in the context variable
     return render(request, 'event/index.html', context=context)
 
-# Event Details Page  
+# Event Details Page with comments 
 def event(request,item_id):
     # context = {'index':item_id}
+
+    #events all objects
+    event = Event.objects.get(pk=item_id)
+    pk_event_heading = str(event)
+    print('events-',pk_event_heading)
+
+    #comment all objects
+    comments = Comment.objects.all()
+    event_comments = Comment.objects.filter(event=item_id)
+    total_comments = len(event_comments)
+    print(total_comments)
+    # print(event_comments)
+    # print('item id -',item_id)
+    # for s in event_comments:
+    #   print('user-',s.author,'event-',s.event,'text-',s.text)
+
     
     # Render the HTML template index.html with the data in the context variable
-    return render(request, 'event/event_details.html', {'index':item_id})
+    return render(request, 'event/event_details.html', {'index':item_id,'event_comments':event_comments,'total_comments':total_comments,})
 
+#add comment view
+""" def add_comment_to_post(request,pk):
+    event = get_object_or_404(Event,pk=pk)
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = event
+            comment.save()
 
+            return redirect('event',pk=event.pk)
+        
+        else:
+            form = CommentForm()
+        return render(request,'event/add_comment_to_post.html')
+
+ """
 
 #test api token
 class HelloView(APIView):

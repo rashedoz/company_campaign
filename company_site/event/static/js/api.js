@@ -2,7 +2,7 @@ var obj;
 //Create the XHR Object
 let xhr = new XMLHttpRequest;
     //Call the open function, GET-type of request, url, true-asynchronous
-    xhr.open('GET', 'http://127.0.0.1:8000/event/?format=json')
+    xhr.open('GET', 'http://127.0.0.1:8050/event/?format=json')
     xhr.setRequestHeader ("Authorization", "Bearer " + 'c85c0db20a11fdc080ee9379d684e6165384d0d9');
     //call the onload 
     xhr.onload = function() 
@@ -59,9 +59,11 @@ let xhr = new XMLHttpRequest;
                     introBody.appendChild(introTitle)
 
                     //into link text
+                    var pk = campaign.pk
+                    console.log("pk-"+pk)
                     var introLink = document.createElement('a')
                     
-                    introLink.href = "/event_details/"+i+"/"
+                    introLink.href = "/event_details/"+pk+"/"
                     introLink.text = campaign.event_heading
                     introTitle.appendChild(introLink)
                     i++
